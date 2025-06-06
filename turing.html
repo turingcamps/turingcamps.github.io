@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+25&display=swap" rel="stylesheet">
+  <title>Turing Camps</title>
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Jersey 25", sans-serif;
+      background-color: #ffecd1ff;
+    }
+    header {
+      padding: 1%;
+      background-color: #ffecd1ff;
+    }
+    .title {
+      margin-top:2%;
+      font-family: "Jersey 25", sans-serif;
+      font-size: 15vw;
+      text-align: center;
+      position: relative;
+      color:#ff7d00;
+    }
+    .textbox {
+      margin-bottom:4%;
+      font-family: "Jersey 10", sans-serif;
+      font-size: 6vw;
+      text-align: right;
+      margin-top: -15.5%;
+      margin-right: 28.5%; /* shift right to align 's' with 'g' visually */
+      color:#78290f
+    }
+    .subtitle{
+      color:#15616d;
+    }
+    .button-container {
+      display: flex;
+    }
+    .button-container a {
+      text-align: center;
+      text-decoration: none;
+      flex: 1;
+      font-family: "Jersey 10", sans-serif;
+      padding: 1.7%;
+      font-size: 2.5vw;
+      border: none;
+      background-color: #15616d;
+      color: #ffecd1ff;
+      cursor: pointer;
+      margin: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .button-container a:nth-child(1){
+      background-color: #78290f;
+    }
+
+    .button-container a:nth-child(3){
+      background-color: #001524ff;
+    }
+
+    .button-container a:hover {
+      color:#ff7d00;
+      transform: translateY(-7px);
+    }
+
+    .subheader{
+      margin-top: 5%;
+      font-family: "Jersey 10", sans-serif; 
+      font-size: 6vw;
+      text-align: center;
+      margin-bottom: 2.5%;
+    }
+
+    #mission{
+      color:#78290f;
+    }
+
+    #courses{
+      color:#15616d;
+    }
+
+    .announcement-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ff7d00;
+      color: #ffecd1ff;
+      padding: 10px 20px;
+      margin: 10px 0;
+    }
+
+    .announcement-text {
+      flex: 1;
+      font-size: 3vw;
+    }
+
+    .announcement-bar a{
+      color:#001524ff;
+    }
+    .signup-button {
+      background-color: #ffecd1ff;
+      font-family: "Jersey 25", sans-serif;
+      border: none;
+      font-size: 3vw;
+      padding: 1.6% 5%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .signup-button:hover {
+      background-color: #15616d;
+    }
+
+    .mission-section {
+      width:94%;
+      background-color: #78290f;
+      display: flex;
+      align-items: center;
+      padding: 3%;     
+      margin: auto;
+      margin-bottom: 8%;
+      flex-wrap: wrap; /* for responsiveness */
+      }
+
+    .mission-image {
+      flex: 2;
+    }
+
+    .mission-image img {
+      width: 70%;
+      margin-left: 15%;
+      border-color:#ffecd1ff;
+      border-width: 10px;
+      border-style: solid;
+    }
+
+    .mission-text {
+      color:#ffecd1ff;
+      margin-left: 2%;
+      flex: 2;
+      text-align: left;
+      font-size: 2.5vw;
+    }
+
+    .courses-section {
+      padding-bottom: 2%;
+      padding-left: 15%;
+      padding-right: 15%;
+      text-align: center;
+    }
+
+    .course-grid {
+      padding-top: 2%;
+      display: flex;
+      justify-content: space-between;
+      gap: 7%;
+      flex-wrap: wrap;
+    }
+
+    .course-card {
+      padding: 20px;
+      flex: 1;
+      max-width: 380px;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10%;
+    }
+
+    .course-card h3 {
+      font: "Jersey 10";
+      font-size: 3.5vw;
+      margin: 2% 0;
+      color: #ff7d00;
+    }
+
+    .course-card p {
+      text-align: left;
+      font-size: 1.6vw;
+      margin: 2% 0 20%;
+      color: #001524ff;
+      bottom:0px;
+    }
+
+
+    .course-card button {
+      font-family: "Jersey 10", sans-serif;
+      color: #ff7d00;
+      background-color: #001524ff;
+      border: none;
+      padding: 5%;
+      width: 100%;
+      font-size: 2.5vw;
+      cursor: pointer;
+    }
+
+    .course-card  .sign-up{
+      background-color: #ff7d00;
+      color: #001524ff;
+    }
+
+    .sign-up:hover {
+      background-color: #15616d;
+      color: #ffecd1ff;
+    }
+
+
+    .contact-section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: 5%;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-item .icon {
+      width: 250px;
+      margin-bottom: 2%;
+    }
+
+    .contact-item p {
+      font-size: 1.7vw;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 14vw;
+      }
+
+      .textbox {
+        margin-right: 0%;
+        font-size: 8vw;
+        text-align: center;
+      }
+
+      .button-container {
+        flex-direction: row;
+      }
+
+      .button-container a {
+        font-size: 5vw;
+        padding: 4%;
+      }
+
+      .subheader {
+        font-size: 12vw;
+      }
+
+      .announcement-text {
+        font-size: 5vw;
+      } 
+
+      .signup-button{
+        font-size: 5vw;
+      }
+
+      .mission-section {
+        flex-direction: column;
+        padding: 5%;
+      }
+
+      .mission-image, .mission-text {
+        flex: 1 1 100%;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .mission-image img {
+        width: 60%;
+        margin: 0;
+      }
+
+      .mission-text {
+        font-size: 4vw;
+      }
+
+      .course-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .course-card {
+        max-width: 98%;
+        font-size: 4vw;
+      }
+      .course-card img {
+        width: 50%;
+        height: auto;
+      } 
+
+      .schedule{
+        width: 120%;
+        margin-left: -10%;
+      }
+
+      .course-card h3 {
+        font-size: 10vw;
+      }
+
+      .course-card p {
+        font-size: 5vw;
+      }
+
+      .course-card button {
+        margin-top: -25%;
+        margin-bottom: 15%;
+        font-size: 8vw;
+      }
+
+      .contact-methods {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      .contact-item .icon {
+        width: 80px;
+      }
+
+      .contact-item p {
+        font-size: 4vw;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">TURING</h1>
+    <div class="textbox"><span id="typewriter"></span><span class="subtitle"> camps</span></div>
+    <div class="button-container">
+      <a href="#mission">Our Mission</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </header>
+  <div class="announcement-bar">
+    <span class="announcement-text">🚨 LIMITED SEATS! SIGN-UP FOR SUMMER CAMP!</span>
+    <button class = "signup-button"> <a href = "https://forms.gle/W7anme2U1VVbFFJj8">Sign Up!</a></button>
+  </div> 
+  <div class="subheader" id="mission">_Our Mission_</div>
+  <section class="mission-section">
+    <div class="mission-image">
+      <img src="https://d1y8sb8igg2f8e.cloudfront.net/images/teacher.width-800.jpg" alt="Our Mission Photo" />
+    </div>
+    <div class="mission-text">
+      <p>
+        We are a non-profit that strives to teach teens tech skills and impact our local community.
+        </br></br>
+        Our classes are interactive, understandable, and teach students the DEVELOPMENT PROCESS - not just 
+        what code does, but how to use it to create anything they wish.
+        </br></br>
+        Additionally, we convert ALL PROFITS into diapers, which we donate to local Chicago suburbs.
+      </p>
+    </div>
+  </section>
+  <div class="subheader" id="courses">_Course Offerings_</div>
+  <section class="courses-section">
+    <img src="schedule.png" class = "schedule" alt="Summer Schedule">
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="gamedev.png" alt="Course 1">
+        <h3>Game Dev</h3>
+        <p>Step into the creative world of 
+          VIDEO GAME DEVELOPMENT with this all-in-one course that teaches you what you need to know about Unity, C#, game art, and more!
+          </br>
+          </br>
+          Through the 4 classes, students will work on and finish their very own platformer game!
+          </p>
+        <a href = "https://forms.gle/W7anme2U1VVbFFJj8"><button class = "sign-up">Sign Up!</button></a>
+      </div>
+      <div class="course-card">
+        <img src="python.png" alt="Course 3">
+        <h3>Python</h3>
+        <p>Learn the world’s most popular and important programming language, PYTHON, with engaging project based lessons.
+          </br>
+          </br>
+          Students will conclude the camp with a hackathon - a coding competition to test their new skills!</p>
+        <a href = "https://forms.gle/W7anme2U1VVbFFJj8"><button class = "sign-up">Sign Up!</button></a>
+      </div>
+      <div class="course-card">
+        <img src="robotics.png" alt="Course 2">
+        <h3>Robotics</h3>
+        <p>Learn about the fascinating world of Robotics through this beginners course in Arduino robotics. More info to come!</p>
+        <button>Coming soon!</button>
+      </div>
+    </div>
+  </section>
+  <div class="subheader" id="contact">_Contact Us_</div>
+  <section class="contact-section"> 
+    <div class="contact-methods">
+      <div class="contact-item">
+        <a href="https://www.instagram.com/turingcamps/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="icon"></a>
+        <p>@turingcamps</p>
+      </div>
+      <div class="contact-item">
+        <a href="facebook.com"></a><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Email" class="icon"></a>
+        <p>@turingcamps</p>
+      </div>
+      <div class="contact-item">
+        <a href="mailto:turingcamps@gmail.com"></a><img src="https://static-00.iconduck.com/assets.00/gmail-icon-1024x1024-09wrt8am.png" alt="Email" class="icon"></a>
+        <p>turingcamps@gmail.com</p>
+      </div>
+    </div>
+  </section>
+  
+</body>
+<script>
+  const words = ["summer|", "game dev|", "coding|", "robotics|", "python|",  "tech|"];
+  const typeSpeed = 150;
+  const deleteSpeed = 100;
+  const waitTime = 800;
+
+  let i = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const element = document.getElementById("typewriter");
+
+  function type() {
+    const currentWord = words[i % words.length];
+
+    if (isDeleting) {
+      charIndex--;
+      element.textContent = currentWord.substring(0, charIndex);
+    } else {
+      element.textContent = currentWord.substring(0, charIndex);
+      charIndex++;
+    }
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      delay = waitTime;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      i++;
+      delay = 500;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  type();
+</script>
+</html>
+
